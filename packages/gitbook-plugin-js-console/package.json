@@ -27,15 +27,14 @@
     "test": "test"
   },
   "scripts": {
-    "build": "webpack --mode production",
+    "build": "webpack --mode development",
     "prepublish": "npm run --if-present watch",
     "watch": "webpack --mode development -w"
   },
   "dependencies": {
-    "assemblyscript": "github:willemneal/assemblyscript#9f7377960680f2ec28c57cb71b1d3a2a805f4686",
+    "assemblyscript": "github:willemneal/assemblyscript#evaluator",
     "binaryen": "^63.0.0",
-    "codemirror-console-ui": "../codemirror-console-ui",
-    "regenerator-runtime": "^0.13.1"
+    "codemirror-console-ui": "file:../codemirror-console-ui"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",

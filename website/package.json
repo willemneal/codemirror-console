@@ -10,8 +10,7 @@
     "start": "gitbook serve"
   },
   "dependencies": {
-    "gitbook-cli": "^2.3.0",
-    "gitbook-plugin-js-console": "../packages/gitbook-plugin-js-console"
+    "gitbook-cli": "^2.3.0"
   },
   "devDependencies": {
     "install-local": "^0.6.2"
