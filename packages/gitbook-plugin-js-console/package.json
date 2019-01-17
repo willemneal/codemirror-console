@@ -28,11 +28,14 @@
   },
   "scripts": {
     "build": "webpack --mode production",
-    "prepublish": "npm run --if-present build",
+    "prepublish": "npm run --if-present watch",
     "watch": "webpack --mode development -w"
   },
   "dependencies": {
-    "codemirror-console-ui": "^2.0.1"
+    "assemblyscript": "file:../../../wasm/assemblyscript",
+    "binaryen": "^63.0.0",
+    "codemirror-console-ui": "../codemirror-console-ui",
+    "regenerator-runtime": "^0.13.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",

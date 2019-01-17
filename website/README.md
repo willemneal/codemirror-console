@@ -1,6 +1,10 @@
 # Example
 
 {% console %}{% endconsole %}
-```js
-console.log(1);
+```ts
+let x = 42;
+let y = x + x;
+export function getY(): i32 {
+  return y;
+}
 ```

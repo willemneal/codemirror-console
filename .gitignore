@@ -31,6 +31,7 @@ node_modules
 # Debug log from npm
 npm-debug.log
 
+packages/*/node_modules/*
 
 /packages/codemirror-console/dest/
 /website/_book/

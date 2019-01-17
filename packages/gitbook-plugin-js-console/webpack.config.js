@@ -29,5 +29,26 @@ module.exports = {
                 ]
             }
         ]
+    },
+    node: {
+  //   // "buffer": false,
+      "fs": "empty",
+  //   // "global": true,
+  //   // "os": false,
+  //   // "process": "mock",
+  //   // "crypto": false
+  },
+  resolve: {
+    alias: {
+      // binaryen: path.resolve(__dirname, 'node_modules/assemblyscript/binaryen'),
+      asc: path.resolve(__dirname, 'node_modules/assemblyscript/dist/asc.js'),
+      assemblyscript: path.resolve(__dirname, 'node_modules/assemblyscript/index.js'),
+      ascloader: path.resolve(__dirname, 'node_modules/assemblyscript/lib/loader')
     }
+  }
+  // externals: {
+  //   assemblyscript: 'assemblyscript',
+  //   asc: "asc"
+  // }
+
 };

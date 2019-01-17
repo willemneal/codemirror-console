@@ -36,15 +36,19 @@ MirrorConsole.prototype.destroy = function(element) {
     }
     Object.freeze(this);
 };
-MirrorConsole.prototype.runInContext = function(context, callback) {
+MirrorConsole.prototype.runInContext = function(context, callback, _eval) {
     if (this.evalContext) {
         this.evalContext.destroy();
     }
     this.evalContext = new EvalContext(context, this.textareaHolder);
-    var jsCode = this.editor.getValue();
+    if(!_eval){
+      _eval = this.evalContext.evaluate
+    }
+
+    var jsCode = this.editor.getValue("\n");
     var res;
     try {
-        res = this.evalContext.evaluate(jsCode);
+        res = _eval(jsCode);
         callback(null, res);
     } catch (error) {
         callback(error, res);

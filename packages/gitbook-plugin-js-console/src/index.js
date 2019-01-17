@@ -1,9 +1,47 @@
 // LICENSE : MIT
-"use strict";
-import { attachToElement } from "codemirror-console-ui/components/mirror-console-component.js";
+// "use strict";
+import { attachToElement, setUserContext, setPreEval } from "codemirror-console-ui/components/mirror-console-component.js";
+let binaryen = require('binaryen');
+let assemblyscript = require("assemblyscript");
+let loader = require('ascloader');
+let asc = require("asc");
+
+// import {loader} from "assemblyscript/lib/loader";
+// import regeneratorRuntime from "regenerator-runtime";
 (function() {
     require("./style.css");
     var matchSelector = ".gitbook-plugin-js-console";
+    debugger;
+    function evalAsc(source){
+      debugger;
+      let mod = asc.compileString(source)
+      if (!mod.text) return mod.stderr.toString();
+      console.log(mod.text);
+      let instance = loader.instantiateBuffer(mod.binary);
+      console.log(instance.getY()==84);
+      return mod.text;
+    }
+
+    let userContext =
+    {
+      asc,
+      loader,
+      evalAsc,
+      testFun: () => 4232
+    }
+
+    setUserContext(userContext);
+
+    function preEval(code){
+      console.log(code);
+      var res;
+      try {
+        res = evalAsc(code);
+      } catch(e) { return e}
+      return res.replace(/\n/ig, '\n');
+    }
+
+    setPreEval(preEval);
 
     function findComments(element) {
         var arr = [];
@@ -30,6 +68,7 @@ import { attachToElement } from "codemirror-console-ui/components/mirror-console
     }
 
     function updateCodeBlocs() {
+
         var insertPoints = document.querySelectorAll(matchSelector);
         var commentNodes = findComments(document);
         var getCommentNextPreNode = function(prevNode, nextNode, nextNextNode) {

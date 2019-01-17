@@ -12,6 +12,7 @@ require("./mirror-console-compoenent.css");
 require("codemirror/lib/codemirror.css");
 // context
 var userContext = {};
+var preEval =  (x) => "console.log('preEval');\n"+ x;
 
 function intendMirrorConsole(element, defaultsText) {
     var mirror = new MirrorConsole();
@@ -33,7 +34,7 @@ function intendMirrorConsole(element, defaultsText) {
     var logArea = node.querySelector(".mirror-console-log");
 
     function printConsole(args, className) {
-        var div = document.createElement("div");
+        var div = document.createElement("pre");
         div.className = className;
         var outputs = args.map(function(arg) {
             if (String(arg) === "[object Object]" || Array.isArray(arg)) {
@@ -41,7 +42,7 @@ function intendMirrorConsole(element, defaultsText) {
             }
             return String(arg);
         });
-        div.appendChild(document.createTextNode(outputs.join(", ")));
+        div.appendChild(document.createTextNode(outputs[0].split("\n").join('\n')));
         logArea.appendChild(div);
     }
 
@@ -75,7 +76,7 @@ function intendMirrorConsole(element, defaultsText) {
             if (result !== undefined) {
                 printConsole([result], "mirror-console-log-row mirror-console-log-return");
             }
-        });
+        }, preEval);
     };
 
     mirror.swapWithElement(element);
@@ -142,4 +143,8 @@ function setUserContext(context) {
     userContext = context;
 }
 
-export { attachToElement, setUserContext };
+function setPreEval(func) {
+    preEval = func;
+}
+
+export { attachToElement, setUserContext, setPreEval };
