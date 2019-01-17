@@ -32,7 +32,7 @@
     "watch": "webpack --mode development -w"
   },
   "dependencies": {
-    "assemblyscript": "file:../../../wasm/assemblyscript",
+    "assemblyscript": "github:willemneal/assemblyscript#9f7377960680f2ec28c57cb71b1d3a2a805f4686",
     "binaryen": "^63.0.0",
     "codemirror-console-ui": "../codemirror-console-ui",
     "regenerator-runtime": "^0.13.1"
