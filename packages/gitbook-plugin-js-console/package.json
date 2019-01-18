@@ -16,7 +16,7 @@
     "url": "https://github.com/azu/gitbook-plugin-js-console.git"
   },
   "license": "MIT",
-  "author": "azu",
+  "author": "Willem Wyndham",
   "files": [
     "gitbook-plugin-js-console.js",
     "src/",
@@ -34,7 +34,7 @@
   "dependencies": {
     "assemblyscript": "github:willemneal/assemblyscript#evaluator",
     "binaryen": "^63.0.0",
-    "codemirror-console-ui": "file:../codemirror-console-ui"
+    "codemirror-console-ui": "^3.0.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
@@ -52,6 +52,5 @@
   },
   "engines": {
     "gitbook": "*"
-  },
-  "email": "azuciao@gmail.com"
+  }
 }
