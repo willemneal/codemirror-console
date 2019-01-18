@@ -1,6 +1,6 @@
 {
   "name": "gitbook-plugin-js-console",
-  "version": "2.0.3",
+  "version": "3.0.2",
   "description": "GitBook plugin that provide interactive JavaScript console",
   "keywords": [
     "gitbook",
@@ -34,7 +34,7 @@
   "dependencies": {
     "assemblyscript": "github:willemneal/assemblyscript#evaluator",
     "binaryen": "^63.0.0",
-    "codemirror-console-ui": "^3.0.1"
+    "codemirror-console-ui": "^3.0.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",

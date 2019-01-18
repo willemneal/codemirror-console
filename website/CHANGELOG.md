@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.2](https://github.com/willemneal/codemirror-console/compare/v2.0.3...v3.0.2) (2019-01-18)
+
+**Note:** Version bump only for package website
+
+
+
+
+
 ## [2.0.3](https://github.com/azu/codemirror-console/compare/v2.0.2...v2.0.3) (2018-12-30)
 
 **Note:** Version bump only for package website
