@@ -18,3 +18,6 @@ export function getY(): i32 {
   return y;
 }
 ```
+```js
+console.log(mod.text);
+```

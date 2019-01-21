@@ -34,7 +34,7 @@
   "dependencies": {
     "assemblyscript": "github:willemneal/assemblyscript#evaluator",
     "binaryen": "^63.0.0",
-    "codemirror-console-ui": "^3.0.2"
+    "codemirror-console-ui": "file:../codemirror-console-ui"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
@@ -52,5 +52,6 @@
   },
   "engines": {
     "gitbook": "*"
-  }
+  },
+  "gitHead": "5417cc0ea3681c461548f7e27f6c9cdca68905ea"
 }

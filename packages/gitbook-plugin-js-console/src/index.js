@@ -11,15 +11,11 @@ let asc = require("asc");
 (function() {
     require("./style.css");
     var matchSelector = ".gitbook-plugin-js-console";
-    debugger;
-    function evalAsc(source){
-      debugger;
+    function evalAsc(source) {
       let mod = asc.compileString(source)
       if (!mod.text) return mod.stderr.toString();
       console.log(mod.text);
-      let instance = loader.instantiateBuffer(mod.binary);
-      console.log(instance.getY()==84);
-      return mod.text;
+      return mod;
     }
 
     let userContext =
@@ -32,13 +28,17 @@ let asc = require("asc");
 
     setUserContext(userContext);
 
-    function preEval(code){
-      console.log(code);
-      var res;
+    function preEval(context){
+      console.log(context);
+      var mod;
       try {
-        res = evalAsc(code);
+        mod = evalAsc(context.mirror.buffers['lang-ts'].getValue());
+        if (typeof mod === 'string'){
+          mod = {text: mod}
+        }
+        context.mod = mod;
       } catch(e) { return e}
-      return res.replace(/\n/ig, '\n');
+      return context.mirror.buffers['lang-js'].getValue();
     }
 
     setPreEval(preEval);
@@ -150,11 +150,30 @@ let asc = require("asc");
     });
 
     function replaceCodeWithConsole(codeBlock, options) {
-        var codes = codeBlock.getElementsByTagName("code");
-        if (!codes || codes.length === 0) {
-            return;
+        let codeBlocks = []
+        // var codes = codeBlock.getElementsByTagName("code");
+        // if (!codes || codes.length === 0) {
+        //     return;
+        // }
+        let codes = codeBlock.getElementsByTagName("code");
+        for (let i=0; i< codes.length; i++){
+          codeBlocks.push(codes[i]);
         }
-        var code = codes[0];
-        attachToElement(codeBlock, code.textContent, options);
+        let next = codeBlock;
+        while (true){
+          next = next.nextElementSibling;
+          if (!next){
+            break;
+          }
+          let codes = next.getElementsByTagName("code");
+          if (!codes|| codes.length === 0){
+            break;
+          }
+          next.hidden = true;
+          for (let i=0; i< codes.length; i++){
+            codeBlocks.push(codes[i]);
+          }
+        }
+        attachToElement(codeBlock, codeBlocks, options);
     }
 })();

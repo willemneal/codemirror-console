@@ -4,6 +4,7 @@ var CodeMirror = require("codemirror");
 require("codemirror/mode/javascript/javascript");
 function MirrorConsole() {
     this.editor = this.createEditor();
+    this.buffers = {};
 }
 MirrorConsole.prototype.createEditor = function() {
     this.textareaHolder = document.createElement("div");
@@ -11,6 +12,14 @@ MirrorConsole.prototype.createEditor = function() {
     this.textareaHolder.appendChild(this.textarea);
     return CodeMirror.fromTextArea(this.textarea);
 };
+
+MirrorConsole.prototype.addBuffer = function(text, mode) {
+  this.buffers[mode] = CodeMirror.Doc(text, mode);
+}
+MirrorConsole.prototype.swapDoc = function (mode){
+  return this.editor.swapDoc(this.buffers[mode]);
+}
+
 MirrorConsole.prototype.setText = function(value) {
     this.editor.setValue(value);
 };
@@ -40,15 +49,18 @@ MirrorConsole.prototype.runInContext = function(context, callback, _eval) {
     if (this.evalContext) {
         this.evalContext.destroy();
     }
+    // var __eval;
+    // if(!_eval){
+    //   __eval = this.evalContext.evaluate
+    // }else{
+    //   __eval = (code) => _eval(context, code);
+    // }
+    console.log(this);
+    var jsCode = _eval(context);
     this.evalContext = new EvalContext(context, this.textareaHolder);
-    if(!_eval){
-      _eval = this.evalContext.evaluate
-    }
-
-    var jsCode = this.editor.getValue("\n");
     var res;
     try {
-        res = _eval(jsCode);
+        res = this.evalContext.evaluate(jsCode);
         callback(null, res);
     } catch (error) {
         callback(error, res);

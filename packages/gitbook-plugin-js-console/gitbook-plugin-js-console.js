@@ -11,6 +11,7 @@ module.exports = {
                 if (this.output.name !== "website") {
                     return "";
                 }
+                console.log(block);
                 return '<a class="gitbook-plugin-js-console" aria-hidden="true"></a>';
             }
         }

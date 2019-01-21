@@ -28,7 +28,7 @@
   "dependencies": {
     "@azu/format-text": "^1.0.1",
     "codemirror": "^5.13.2",
-    "codemirror-console": "^3.0.2",
+    "codemirror-console": "file:../codemirror-console",
     "domify": "^1.4.0",
     "in-browser-language": "^1.0.2",
     "lodash.merge": "^4.3.3"
@@ -46,5 +46,6 @@
     "webpack": "^4.28.2",
     "webpack-cli": "^3.1.2"
   },
-  "source": "components/mirror-console-component.js"
+  "source": "components/mirror-console-component.js",
+  "gitHead": "5417cc0ea3681c461548f7e27f6c9cdca68905ea"
 }
