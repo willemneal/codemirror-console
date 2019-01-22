@@ -1,5 +1,7 @@
 #Types
 
+
+## Value Types
 WebAssembly primitives are value types
 
 - i32 - 32 bit integer
@@ -10,11 +12,24 @@ WebAssembly primitives are value types
 Integers are not signed or unsigned, rather their signedness is determined by operations acting on the integer.
 {% console %}{% endconsole %}
 ```ts
-let u_32: u32 = 42;
-let i_32: i32 = -42;
-let u_64: u64 = 42;
-let i_64: i64 = 42;
-let i
+let i_32: i32 = 42;
+let i_64: i64 = 999999999;
+let f_32: f32 = 3.14;
+let f_64: f64 = 10.99999 * 10000000;
+```
+```js
+console.log(mod.text);
+```
+
+## Function Types
+Functions are maps from a vector of parameter types and
+{% console %}{% endconsole %}
+```ts
+let i = (x: i32): i32 -> (x); // i32 -> i32
+let iv = (x: i32): void -> (); //  i32 -> void
+function identity(x: i32): i32 {
+  return x
+}
 ```
 ```js
 console.log(mod.text);
