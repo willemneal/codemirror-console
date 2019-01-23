@@ -1,8 +1,15 @@
 @charset "UTF-8";
 .CodeMirror.cm-s-default {
     border-bottom: #000 solid 1px;
+    width: 50%;
+    float: left;
+    /* flex: 1 0 auto; */
 }
-
+.container {
+  float: right;
+  width: 50%;
+  /* flex: 0 1 auto; */
+}
 .CodeMirror {
     font-size: 16px;
 }
@@ -14,6 +21,7 @@
 .mirror-console-wrapper {
     background-color: #f7f7f7;
     outline: #000 solid 1px;
+    display:flex;
 }
 
 .mirror-console-button {
