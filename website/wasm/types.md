@@ -25,11 +25,18 @@ console.log(mod.text);
 Functions are maps from a vector of parameter types and
 {% console %}{% endconsole %}
 ```ts
-let i = (x: i32): i32 -> (x); // i32 -> i32
-let iv = (x: i32): void -> (); //  i32 -> void
+let i  = (x:i32):i32 =>(x);
+let iv = (x:i32): void => {return;}
 function identity(x: i32): i32 {
-  return x
+  return x;
 }
+function i_void(x: i32): void {}
+
+let x = 1;
+i(x);
+iv(x);
+identity(x);
+i_void(x);
 ```
 ```js
 console.log(mod.text);
