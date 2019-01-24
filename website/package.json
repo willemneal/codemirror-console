@@ -5,8 +5,7 @@
   "license": "MIT",
   "author": "Willem Wyndham",
   "scripts": {
-    "prebuild": "install-local ../packages/gitbook-plugin-js-console",
-    "build": "gitbook build",
+    "build": "npm run start",
     "start": "gitbook serve"
   },
   "dependencies": {

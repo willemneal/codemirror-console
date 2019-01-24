@@ -14,7 +14,11 @@ MirrorConsole.prototype.createEditor = function() {
 };
 
 MirrorConsole.prototype.addBuffer = function(text, mode) {
-  this.buffers[mode] = CodeMirror.Doc(text, mode);
+  var _mode = 'javascript';
+  if (mode === "lang-ts"){
+    _mode = 'text/typescript'
+  }
+  this.buffers[mode] = CodeMirror.Doc(text, _mode);
 }
 MirrorConsole.prototype.swapDoc = function (mode){
   return this.editor.swapDoc(this.buffers[mode]);

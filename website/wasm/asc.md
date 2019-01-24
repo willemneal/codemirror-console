@@ -6,13 +6,17 @@ As we saw in the previous section a function has a set of local variables that c
 
 Classes in AS are very simple compared to classes in other languages.  An instance of a class is a memory reference to a collection of instance variables.
 
-
 {% console %}{% endconsole %}
 ```ts
 class Foo {
   x: i32 = 10
+  foo(i:i32):i32{
+    return this.x + i;
+  }
 }
 let f = new Foo();
+let x = f.x;
+let y = f.foo(x);
 ```
 ```js
 console.log(mod.text);

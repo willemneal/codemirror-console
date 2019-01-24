@@ -28,7 +28,7 @@
   },
   "scripts": {
     "build": "webpack --mode development",
-    "prepublish": "npm run --if-present watch",
+    "prepublish": "npm run --if-present build",
     "watch": "webpack --mode development -w"
   },
   "dependencies": {
