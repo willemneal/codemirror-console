@@ -23,7 +23,6 @@ let asc = require("asc");
       asc,
       loader,
       evalAsc,
-      testFun: () => 4232
     }
 
     setUserContext(userContext);
