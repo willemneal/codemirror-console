@@ -6,6 +6,27 @@ let assemblyscript = require("assemblyscript");
 let loader = require('ascloader');
 let asc = require("asc");
 
+function getSection(text, section) {
+  let lines = text.split('\n');
+  return lines.filter((element)=>element.startsWith(' ('+section));
+}
+
+function getFuncSection(text){
+  let lines = text.split('\n');
+  let funcs = getSection(text, 'func');
+  let indexs = funcs.map((func) => lines.findIndex((element)=> element === func))
+  let res = [];
+  for (let i in indexs){
+    var end;
+    if (i < indexs.length - 1){
+      end = indexs[i+1]
+    }else{
+      end = lines.length -1
+    }
+    res.push((lines.slice(indexs[i], end)))
+  }
+  return res;
+}
 // import {loader} from "assemblyscript/lib/loader";
 // import regeneratorRuntime from "regenerator-runtime";
 (function() {
@@ -23,6 +44,7 @@ let asc = require("asc");
       asc,
       loader,
       evalAsc,
+      getSection
     }
 
     setUserContext(userContext);
