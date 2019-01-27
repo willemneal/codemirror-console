@@ -3,6 +3,12 @@
   "title": "AssemblyScipt and WebAssembly",
   "description": "A walkthrough the new programming language AssemblyScipt designed to compile to WebAssembly a new virtual machine for browsers",
   "plugins": [
-    "js-console"
-  ]
+    "js-console",
+    "github"
+  ],
+  "pluginsConfig": {
+        "github": {
+            "url": "https://github.com/your/repo"
+        }
+    }
 }
