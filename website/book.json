@@ -9,10 +9,7 @@
   "pluginsConfig": {
     "edit-link": {
               "base": "https://github.com/willemneal/codemirror-console/edit/master/website",
-              "label": {
-                  "en": "Edit This Page",
-                  "de": "Seite bearbeiten"
-              }
+              "label": "Edit This Page"              
           }
     }
 }

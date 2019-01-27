@@ -31,7 +31,7 @@ This is very different than a low level assembly instruction set which requires 
 
 To actually run the bytecode you need a Java Runtime Environment (JRE), which handles all of the stack operations.  It also provides high level features for the language such as Input/Output (I/O), a class loader, and garbage collection.  These features allow the bytecode to interact with the host machine and manages all of the objects created during execution.
 
-Another important feature that the JRE supports, and one that is the biggest reason for its success, is Just-In-Time (JIT) Compilation.  Executing the bytecode above could easily be translated to native assembly code because the variables are all integers.  However, since Java has classes and polymorphism (e.g. method overloading) it is not always so easy.  This means that
+Another important feature that the JRE supports, and one that is the biggest reason for its success, is Just-In-Time (JIT) Compilation.  Executing the bytecode above could easily be translated to native assembly code because the variables are all integers.  However, since Java has classes and polymorphism (e.g. method overloading) it is not always so easy.  This means that each time a method is called the interpreter must discover what object its associated with and compile it.  This has an overhead, however the call site can be replaced with a direct call to the complied function.  This works particularly well in loops
 
 
 [^1]: Again this can be broken down into a language VM and an environment VM like wine, which emulates a windows environment for UNIX systems.
