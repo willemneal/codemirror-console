@@ -2,7 +2,7 @@
 
 The WebAssembly spec[^1] defines each instruction and a module, which is a binary or a text format.  The spec is well written and a great reference, but instead of repeating it we'll learn through examples of the text format.
 
-As a first example, let's look at what an AssemblyScript compiles to.
+As a first example, let's look at what an empty AssemblyScript compiles to.
 ```
 (module
  (type $v (func))
