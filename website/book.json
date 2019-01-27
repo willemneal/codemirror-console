@@ -8,7 +8,7 @@
   ],
   "pluginsConfig": {
     "edit-link": {
-              "base": "https://github.com/USER/REPO/edit/BRANCH/path/to/book",
+              "base": "https://github.com/willemneal/codemirror-console/edit/master/website",
               "label": {
                   "en": "Edit This Page",
                   "de": "Seite bearbeiten"
