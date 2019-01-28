@@ -1,4 +1,4 @@
-# AssemblyScipt
+# AssemblyScript
 
 [WebAssembly](https://webassembly.github.io/spec) is a new virtual machine created and supported by the four major browsers.  It's goal is to allow programming languages originally meant to compile to native assembly to run in the browser.  Thus the first major compilers to `.wasm` (the binary format), were for C/C++ and Rust.  WebAssembly's initial successes stemmed from a goal to keep the Minimum Viable Product (MVP) as barebones as possible, e.g. manual memory management and single threaded execution.
 

@@ -97,11 +97,9 @@ function intendMirrorConsole(element, codeBlocks) {
         range.deleteContents();
     });
     node.querySelector(".mirror-console-exit").addEventListener("click", function exitConsole() {
-
-        attachToElement(element, codeBlocks.map((codeBlock) => {
-          codeBlock.textContent = mirror.buffer[codeBlock.className].getValue();
-        }));
+        codeBlocks[0].textContent = mirror.buffer[codeBlocks[0].className].getValue();
         mirror.destroy();
+        attachToElement(element, codeBlocks[0]);
     });
 
     return mirror;

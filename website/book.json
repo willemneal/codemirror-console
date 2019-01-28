@@ -9,7 +9,7 @@
   "pluginsConfig": {
     "edit-link": {
               "base": "https://github.com/willemneal/codemirror-console/edit/master/website",
-              "label": "Edit This Page"              
+              "label": "Edit This Page on GitHub"
           }
     }
 }
