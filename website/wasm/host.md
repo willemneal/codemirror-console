@@ -75,5 +75,5 @@ let imports = {
 let module = new WebAssembly.Module(mod.binary);
 let instance = new WebAssembly.Instance(module, imports);
 ```
-
-Since when does `hello world` equal 8?  Well remember `str` in the module is a reference to the string it the module's memory.  So 8 is the memory location of `hello world`.  Since WebAssembly's only value types are integers and floats that's what you're limited to when passing data to and from the host. 
+----
+Since when does `hello world` equal 8?  Well remember `str` in the module is a reference to the string it the module's memory.  So 8 is the memory location of `hello world`.  Since WebAssembly's only value types are integers and floats that's what you're limited to when passing data to and from the host.
