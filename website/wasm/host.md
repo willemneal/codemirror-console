@@ -1,6 +1,6 @@
 # Host Environment
 
-So far we've looked at code that doesn't interact with the outside world.  To handle this WebAssembly has two special sections: `imports`, `exports`.  Furthermore there is a standard [JavaScript API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/WebAssembly) for compiling, instantiating, and interacting with a WebAssembly module.
+So far we've looked at code that doesn't interact with the outside world.  To handle this WebAssembly has two special sections: `imports` and `exports`.  Furthermore there is a standard [JavaScript API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/WebAssembly) for compiling, instantiating, and interacting with a WebAssembly module.
 
 ## Exports
 

@@ -1,7 +1,7 @@
 {
   "gitbook": ">=3.0.0",
-  "title": "AssemblyScipt and WebAssembly",
-  "description": "A walkthrough the new programming language AssemblyScipt designed to compile to WebAssembly a new virtual machine for browsers",
+  "title": "AssemblyScript and WebAssembly",
+  "description": "A walkthrough the new programming language AssemblyScript designed to compile to WebAssembly a new virtual machine for browsers",
   "plugins": [
     "js-console",
     "edit-link"
