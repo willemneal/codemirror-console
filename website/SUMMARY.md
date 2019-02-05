@@ -8,3 +8,4 @@
     * [AssemblyScript Types](wasm/asc.md)
     * [Strings](wasm/strings.md)
   * [Host](wasm/host.md)
+  * [Memory](wasm/memory.md)
