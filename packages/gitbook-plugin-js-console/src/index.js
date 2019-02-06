@@ -32,6 +32,7 @@ function getFuncSection(text){
 (function() {
     require("./style.css");
     var matchSelector = ".gitbook-plugin-js-console";
+
     function evalAsc(source) {
       let mod = asc.compileString(source)
       if (!mod.text) return mod.stderr.toString();
@@ -53,11 +54,13 @@ function getFuncSection(text){
       console.log(context);
       var mod;
       try {
-        mod = evalAsc(context.mirror.buffers['lang-ts'].getValue());
+        source = context.mirror.buffers['lang-ts'].getValue();
+        mod = evalAsc(source);
         if (typeof mod === 'string'){
           mod = {text: mod}
         }
         context.mod = mod;
+        context.source = source;
       } catch(e) { return e}
       return context.mirror.buffers['lang-js'].getValue();
     }

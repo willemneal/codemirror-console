@@ -26,7 +26,7 @@ Let's break it down line by line
 - `(export "memory" (memory $0))` - an export name "memory" with the value of the memory name `$0`.
 - `(func $null (; 0 ;) (type $v))` - a function named `$null`, which takes no parameters, returns nothing, has an empty body and has type `$v`.[^5]
 
-This is a lot at once, but we'll look at more examples in depth and you'll be reading WebAssembly files like a pro.
+This is a lot at once, but we'll look at more examples in depth and you'll be reading WebAssembly text files like a pro.
 
 
 
