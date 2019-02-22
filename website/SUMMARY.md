@@ -7,5 +7,6 @@
   * [Types](wasm/types.md)
     * [AssemblyScript Types](wasm/asc.md)
     * [Strings](wasm/strings.md)
+    * [Instructions](wasm/builtins/README.md)
   * [Host](wasm/host.md)
   * [Memory](wasm/memory.md)
