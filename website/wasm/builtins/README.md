@@ -18,69 +18,63 @@ let z: f64 = <f32> 42.0
 console.log(getSection(mod.text, "global"));
 ```
 
+# Arthimetic Operations
+
 {% console %}{% endconsole %}
 ```ts
+declare function print(a: i32, b: i32, c: i32, op: string): void;
+export function main(): void{}
 let left = 32;
 let right = 4;
+let value = 17;
+let shift = 3;
 //i32.add
-<i32>left + <i32>right;
-//i32.sub
-<i32>left - <i32>right;
-//i32.mul
-<i32>left * <i32>right;
-//i32.div_s
-<i32>left / <i32>right;
-//i32.div_u
-<u32>left / <u32>right;
-//i32.rem_s
-<i32>left % <i32>right;
-//i32.rem_u
-<u32>left % <u32>right;
-//i32.and
-<i32>left & <i32>right;
-//i32.or
-<i32>left | <i32>right;
-//i32.xor
-<i32>left ^ <i32>right;
-//i32.shl
-<i32>left << right;
-//i32.shr_s
-<i32>left >> right;
-//i32.shr_u
-<u32>left >> right or <i32>left >>> right;
-//i32.rotl
-rotl<i32>(value, shift);
-//i32.rotr
-rotr<i32>(value, shift);
-//i32.eq
-<i32>left == <i32>right;
-//i32.ne
-<i32>left != <i32>right;
-//i32.lt_s
-<i32>left < <i32>right;
-//i32.lt_u
-<u32>left < <u32>right;
-//i32.le_s
-<i32>left <= <i32>right;
-//i32.le_u
-<u32>left <= <u32>right;
-//i32.gt_s
-<i32>left > <i32>right;
-//i32.gt_u
-<u32>left > <u32>right;
-//i32.ge_s
-<i32>left >= <i32>right;
-//i32.ge_u
-<u32>left >= <u32>right;
-//i32.clz
-clz<i32>(value);
-//i32.ctz
-ctz<i32>(value);
-//i32.popcnt
-popcnt<i32>(value);
-//i32.eqz
-!<i32>value;
+print(left, right, <i32>left + <i32>right, "i32.add");
+print(left, right, <i32>left - <i32>right, "i32.sub")
+print(left, right, <i32>left * <i32>right, "i32.mul")
+print(left, right, <i32>left / <i32>right, "i32.div_s")
+print(left, right, <u32>left / <u32>right, "i32.div_u")
+print(left, right, <i32>left % <i32>right, "i32.rem_s")
+print(left, right, <u32>left % <u32>right, "i32.rem_u")
+print(left, right, <i32>left & <i32>right, "i32.and")
+print(left, right, <i32>left | <i32>right, "i32.or")
+print(left, right, <i32>left ^ <i32>right, "i32.xor")
+print(left, right, <i32>left << right, "i32.shl")
+print(left, right, <i32>left >> right, "i32.shr_s")
+print(left, right, <u32>left >> right, "i32.shr_u");
+print(left, right, <i32>left >>> right, "i32.shr_u")
+print(value, shift, rotl<i32>(value, shift), "i32.rotl")
+print(value, shift, rotr<i32>(value, shift), "i32.rotr")
+print(left, right, <i32>left == <i32>right, "i32.eq")
+print(left, right, <i32>left != <i32>right, "i32.ne")
+print(left, right, <i32>left < <i32>right, "i32.lt_s")
+print(left, right, <u32>left < <u32>right, "i32.lt_u")
+print(left, right, <i32>left <= <i32>right, "i32.le_s")
+print(left, right, <u32>left <= <u32>right, "i32.le_u")
+print(left, right, <i32>left > <i32>right, "i32.gt_s")
+print(left, right, <u32>left > <u32>right, "i32.gt_u")
+print(left, right, <i32>left >= <i32>right, "i32.ge_s")
+print(left, right, <u32>left >= <u32>right, "i32.ge_u")
+print(value, 0, clz<i32>(value), "i32.clz")
+print(value, 0, ctz<i32>(value), "i32.ctz")
+print(value, 0, popcnt<i32>(value), "i32.popcnt")
+print(value, 0, !<i32>value, "i32.eqz")
 ```
 ```js
-console.log(mod.text);
+// console.log(mod.text);
+var instance;
+let imports = {
+  input: {
+    print : (a, b, c, op) => {
+      let bin = (x) => {
+        res = (x>>>0).toString(2)
+        return res.padStart(32, "0");
+      }
+      console.log(`\n${bin(a)}\n${instance.getString(op)}\n${bin(b)}\n${"-".repeat(32)}\n${bin(c)}`);
+    }
+  }
+}
+let module = new WebAssembly.Module(mod.binary);
+instance = loader.instantiate(module, imports);
+instance.main();
 ```
